@@ -6,7 +6,13 @@ import { Separator } from '@/components/ui/separator';
 import { fetchAllProducts } from '@/lib/actions';
 import Link from 'next/link';
 
-async function ProductsContainer({ layout, search = '' }: { layout: string; search: string }) {
+async function ProductsContainer({
+  layout = 'grid',
+  search = '',
+}: {
+  layout: string;
+  search: string;
+}) {
   const products = await fetchAllProducts({ search });
   const totalProducts = products.length;
   const searchTerm = search ? `&search=${search}` : '';
