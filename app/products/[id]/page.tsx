@@ -5,7 +5,12 @@ import { formatCurrency } from '@/lib/format';
 import FavoriteToggleButton from '@/components/products/FavoriteToggleButton';
 import AddToCart from '@/components/single-product/AddToCart';
 import ProductRating from '@/components/single-product/ProductRating';
-async function SingleProductPage({ params }: { params: { id: string } }) {
+
+interface PageProps {
+  params: Promise<{ id: string }>;
+}
+
+async function SingleProductPage({ params }: PageProps) {
   const { id } = await params;
   const product = await fetchSingleProduct(id);
   const { name, image, company, description, price } = product;
@@ -41,4 +46,5 @@ async function SingleProductPage({ params }: { params: { id: string } }) {
     </section>
   );
 }
+
 export default SingleProductPage;
