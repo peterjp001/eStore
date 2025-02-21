@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { LucidePenSquare } from 'lucide-react';
 import { LuTrash2 } from 'react-icons/lu';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import { SignInButton } from '@clerk/nextjs';
 // import { SignInButton } from '@clerk/nextjs';
 // import { FaRegHeart, FaHeart } from 'react-icons/fa';
 // import { LuTrash2, LuSquare } from 'react-icons/lu';
@@ -54,6 +56,25 @@ export const IconButton = ({ actionType }: { actionType: actionType }) => {
   return (
     <Button type='submit' size='icon' variant='link' className='p-2 cursor-pointer'>
       {pending ? <RxReload className=' animate-spin' /> : renderIcon()}
+    </Button>
+  );
+};
+
+export const CardSignInButton = () => {
+  return (
+    <SignInButton mode='modal'>
+      <Button type='button' size='icon' variant='outline' className='p-2 cursor-pointer' asChild>
+        <FaRegHeart />
+      </Button>
+    </SignInButton>
+  );
+};
+
+export const CardSubmitButton = ({ isFavorite }: { isFavorite: boolean }) => {
+  const { pending } = useFormStatus();
+  return (
+    <Button type='submit' size='icon' variant='outline' className=' p-2 cursor-pointer'>
+      {pending ? <RxReload className=' animate-spin' /> : isFavorite ? <FaHeart /> : <FaRegHeart />}
     </Button>
   );
 };
