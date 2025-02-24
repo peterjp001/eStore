@@ -25,12 +25,12 @@ export default function CheckoutPage() {
   const options = { fetchClientSecret };
 
   return (
-    <div id='checkout'>
-      <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div id='checkout'>
         <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
           <EmbeddedCheckout />
         </EmbeddedCheckoutProvider>
-      </Suspense>
-    </div>
+      </div>
+    </Suspense>
   );
 }
