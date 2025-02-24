@@ -1,7 +1,7 @@
 #!/bin/bash
 
-folder="form"
-files=("Buttons" "CheckBoxInput" "FormContainer" "FormInput" "ImageInput" "ImageInputContainer" "PriceInput" "TextAreaInput")
+folder="cart"
+files=("CartItemColumns" "CartItemsList" "CartTotals" "ThirdColumn")
 
 # Create folder if it doesn't exist
 mkdir -p "$folder"
